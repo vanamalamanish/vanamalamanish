@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manish Vanamala | Full Stack Developer</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    :root{
+      --bg:#000;
+      --primary:#00ff88;
+      --secondary:#39ff14;
+      --white:#fff;
+      --card:#0d0d0d;
+    }
+
+    body{
+      background:var(--bg);
+      color:var(--white);
+      font-family:'Fira Code', monospace;
+      overflow-x:hidden;
+    }
+
+    canvas{
+      position:fixed;
+      top:0;
+      left:0;
+      z-index:-1;
+    }
+
+    nav{
+      width:100%;
+      padding:20px 10%;
+      position:fixed;
+      top:0;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:rgba(0,0,0,0.7);
+      backdrop-filter:blur(10px);
+      z-index:1000;
+      border-bottom:1px solid rgba(0,255,100,0.2);
+    }
+
+    nav h1{
+      color:var(--primary);
+      font-family:'Orbitron';
+      text-shadow:0 0 10px var(--primary);
+    }
+
+    nav ul{
+      display:flex;
+      gap:20px;
+      list-style:none;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:white;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:var(--primary);
+      text-shadow:0 0 10px var(--primary);
+    }
+
+    section{
+      min-height:100vh;
+      padding:120px 10%;
+    }
+
+    .hero{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+    }
+
+    .hero h2{
+      font-size:4rem;
+      color:var(--primary);
+      font-family:'Orbitron';
+      text-shadow:0 0 20px var(--primary);
+    }
+
+    .typing{
+      font-size:1.5rem;
+      margin-top:20px;
+      color:var(--secondary);
+      border-right:3px solid var(--primary);
+      white-space:nowrap;
+      overflow:hidden;
+      animation:blink 0.7s infinite;
+    }
+
+    @keyframes blink{
+      50%{
+        border-color:transparent;
+      }
+    }
+
+    .terminal{
+      width:100%;
+      max-width:800px;
+      background:#050505;
+      border:1px solid var(--primary);
+      padding:20px;
+      margin-top:40px;
+      border-radius:10px;
+      box-shadow:0 0 20px rgba(0,255,100,0.3);
+    }
+
+    .terminal p{
+      margin:10px 0;
+      color:var(--secondary);
+    }
+
+    .section-title{
+      font-size:2.5rem;
+      color:var(--primary);
+      margin-bottom:40px;
+      text-shadow:0 0 15px var(--primary);
+      font-family:'Orbitron';
+    }
+
+    .card-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:var(--card);
+      padding:25px;
+      border-radius:15px;
+      border:1px solid rgba(0,255,100,0.2);
+      transition:0.4s;
+      box-shadow:0 0 15px rgba(0,255,100,0.1);
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 0 30px rgba(0,255,100,0.5);
+    }
+
+    .card h3{
+      color:var(--primary);
+      margin-bottom:15px;
+    }
+
+    .skills{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+      gap:20px;
+    }
+
+    .skill{
+      background:#050505;
+      border:1px solid rgba(0,255,100,0.2);
+      padding:20px;
+      text-align:center;
+      border-radius:10px;
+      transition:0.3s;
+    }
+
+    .skill:hover{
+      box-shadow:0 0 20px var(--primary);
+      transform:scale(1.05);
+    }
+
+    .timeline{
+      border-left:3px solid var(--primary);
+      padding-left:30px;
+    }
+
+    .timeline-item{
+      margin-bottom:50px;
+      position:relative;
+    }
+
+    .timeline-item::before{
+      content:'';
+      width:20px;
+      height:20px;
+      background:var(--primary);
+      position:absolute;
+      left:-42px;
+      top:5px;
+      border-radius:50%;
+      box-shadow:0 0 20px var(--primary);
+    }
+
+    .timeline-item h3{
+      color:var(--primary);
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:20px;
+      padding:12px 25px;
+      border:1px solid var(--primary);
+      color:var(--primary);
+      text-decoration:none;
+      transition:0.3s;
+      border-radius:5px;
+    }
+
+    .btn:hover{
+      background:var(--primary);
+      color:black;
+      box-shadow:0 0 20px var(--primary);
+    }
+
+    footer{
+      padding:30px;
+      text-align:center;
+      border-top:1px solid rgba(0,255,100,0.2);
+      color:#aaa;
+    }
+
+    @media(max-width:768px){
+      .hero h2{
+        font-size:2.5rem;
+      }
+
+      nav{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <canvas id="matrix"></canvas>
+
+  <nav>
+    <h1>MANISH.exe</h1>
+
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+
+    <h2>MANISH VANAMALA</h2>
+
+    <div class="typing" id="typing"></div>
+
+    <div class="terminal">
+      <p>> Initializing Portfolio...</p>
+      <p>> Loading Full Stack Systems...</p>
+      <p>> Loading AWS Cloud Architecture...</p>
+      <p>> Loading DevOps Automation...</p>
+      <p>> Access Granted ✔</p>
+    </div>
+
+    <a href="#" class="btn">Download Resume</a>
+
+  </section>
+
+  <section id="about">
+    <h2 class="section-title">ABOUT_ME</h2>
+
+    <div class="card">
+      <p>
+        Dynamic Full Stack Developer and AWS Cloud Engineer with 4+ years of enterprise experience across MSD and Cognizant.
+        Specialized in Spring Boot microservices, React applications, DevOps automation, Terraform infrastructure,
+        Kubernetes orchestration, and scalable cloud-native systems.
+      </p>
+
+      <br>
+
+      <p>
+        Experienced in leading engineering teams, architecting enterprise applications,
+        and building production-grade automation frameworks saving over $200K annually.
+      </p>
+    </div>
+
+  </section>
+
+  <section id="experience">
+
+    <h2 class="section-title">EXPERIENCE_LOGS</h2>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <h3>MSD - Manager Software Engineer</h3>
+        <p>2025 - Present</p>
+        <br>
+        <p>
+          Leading enterprise full stack development, AWS ECS microservices,
+          QuizHub onboarding platform, and cloud-native architectures.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Cognizant - Java Full Stack Engineer</h3>
+        <p>2022 - 2025</p>
+        <br>
+        <p>
+          Built automation frameworks, AWS Terraform infrastructure,
+          GCP to AWS migrations, and enterprise React + Spring Boot applications.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Zemoso Technologies</h3>
+        <p>Frontend Developer Intern</p>
+        <br>
+        <p>
+          Developed React component libraries and scalable frontend systems.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="skills">
+
+    <h2 class="section-title">TECH_STACK</h2>
+
+    <div class="skills">
+
+      <div class="skill">Java</div>
+      <div class="skill">Spring Boot</div>
+      <div class="skill">ReactJS</div>
+      <div class="skill">AWS</div>
+      <div class="skill">Terraform</div>
+      <div class="skill">Docker</div>
+      <div class="skill">Kubernetes</div>
+      <div class="skill">Python</div>
+      <div class="skill">Jenkins</div>
+      <div class="skill">MySQL</div>
+      <div class="skill">Ansible</div>
+      <div class="skill">DevOps</div>
+
+    </div>
+
+  </section>
+
+  <section id="projects">
+
+    <h2 class="section-title">PROJECTS</h2>
+
+    <div class="card-grid">
+
+      <div class="card">
+        <h3>QuizHub</h3>
+
+        <p>
+          Enterprise onboarding platform with RBAC,
+          Spring Boot APIs, React frontend,
+          AWS SES integration, and PingFederate SSO.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Backup Portal</h3>
+
+        <p>
+          Monolith to microservices migration using
+          Spring Boot, AWS ECS Fargate,
+          API Gateway, and distributed architecture.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Takeda myPKFiT</h3>
+
+        <p>
+          Automation platform using Selenium,
+          Appium, BrowserStack, Terraform,
+          and AWS infrastructure automation.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="contact">
+
+    <h2 class="section-title">CONTACT_TERMINAL</h2>
+
+    <div class="terminal">
+
+      <p>> Email: vanamalamanish4@gmail.com</p>
+      <p>> GitHub: github.com/vanamalamanish</p>
+      <p>> LinkedIn: linkedin.com/in/vanamala-manish</p>
+      <p>> Location: Hyderabad, India</p>
+      <p>> Status: Open to International Opportunities</p>
+
+    </div>
+
+  </section>
+
+  <footer>
+    © 2026 MANISH VANAMALA | FULL STACK DEVELOPER | AWS CLOUD ENGINEER
+  </footer>
+
+  <script>
+
+    const roles = [
+      "Full Stack Developer",
+      "AWS Cloud Engineer",
+      "DevOps Engineer",
+      "Microservices Architect",
+      "Java Spring Boot Developer"
+    ];
+
+    let roleIndex = 0;
+    let charIndex = 0;
+    let currentRole = "";
+    let isDeleting = false;
+
+    const typing = document.getElementById("typing");
+
+    function typeEffect(){
+
+      currentRole = roles[roleIndex];
+
+      if(!isDeleting){
+        typing.textContent = currentRole.substring(0,charIndex++);
+      }else{
+        typing.textContent = currentRole.substring(0,charIndex--);
+      }
+
+      let speed = isDeleting ? 50 : 100;
+
+      if(!isDeleting && charIndex === currentRole.length + 1){
+        speed = 1500;
+        isDeleting = true;
+      }
+
+      if(isDeleting && charIndex === 0){
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+      }
+
+      setTimeout(typeEffect,speed);
+    }
+
+    typeEffect();
+
+    // MATRIX EFFECT
+
+    const canvas = document.getElementById("matrix");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const letters = "01";
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+
+    const drops = [];
+
+    for(let x = 0; x < columns; x++){
+      drops[x] = 1;
+    }
+
+    function draw(){
+
+      ctx.fillStyle = "rgba(0,0,0,0.05)";
+      ctx.fillRect(0,0,canvas.width,canvas.height);
+
+      ctx.fillStyle = "#00ff88";
+      ctx.font = fontSize + "px monospace";
+
+      for(let i = 0; i < drops.length; i++){
+
+        const text = letters.charAt(
+          Math.floor(Math.random() * letters.length)
+        );
+
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if(drops[i] * fontSize > canvas.height && Math.random() > 0.975){
+          drops[i] = 0;
+        }
+
+        drops[i]++;
+      }
+    }
+
+    setInterval(draw,33);
+
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+  </script>
+
+</body>
+</html>
