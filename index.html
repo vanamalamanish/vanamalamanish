@@ -30,13 +30,6 @@
       overflow-x:hidden;
     }
 
-    canvas{
-      position:fixed;
-      top:0;
-      left:0;
-      z-index:-1;
-    }
-
     nav{
       width:100%;
       padding:20px 10%;
@@ -205,6 +198,27 @@
       color:var(--primary);
     }
 
+    .timeline-item ul,
+.card ul{
+  margin-left:20px;
+  line-height:1.8;
+}
+
+.timeline-item li,
+.card li{
+  margin-bottom:10px;
+  color:#dcdcdc;
+}
+
+    .timeline-item{
+  transition:0.4s;
+}
+
+.timeline-item:hover{
+  transform:translateX(10px);
+  text-shadow:0 0 10px #00ff88;
+}
+
     .btn{
       display:inline-block;
       margin-top:20px;
@@ -250,10 +264,8 @@
 
 <body>
 
-  <canvas id="matrix"></canvas>
-
   <nav>
-    <h1>MANISH.exe</h1>
+    <h1>MANISH</h1>
 
     <ul>
       <li><a href="#about">About</a></li>
@@ -278,7 +290,7 @@
       <p>> Access Granted ✔</p>
     </div>
 
-    <a href="#" class="btn">Download Resume</a>
+    <a href="resume.pdf" download class="btn">Download Resume</a>
 
   </section>
 
@@ -364,45 +376,160 @@
 
   </section>
 
+  <section id="certifications">
+
+  <h2 class="section-title">CERTIFICATIONS</h2>
+
+  <div class="card-grid">
+
+    <div class="card">
+      <h3>AWS Certified Cloud Practitioner</h3>
+      <p>Amazon Web Services</p>
+    </div>
+
+    <div class="card">
+      <h3>Microsoft Azure AI Fundamentals</h3>
+      <p>AI-900 Certification</p>
+    </div>
+
+    <div class="card">
+      <h3>Innovation Hackathon</h3>
+      <p>Ranked 6th out of 222 ideas</p>
+    </div>
+
+    <div class="card">
+      <h3>Blue Bolt Champion Award</h3>
+      <p>Cognizant 2024</p>
+    </div>
+
+  </div>
+
+</section>
+
   <section id="projects">
 
-    <h2 class="section-title">PROJECTS</h2>
+  <h2 class="section-title">PROJECT_ARCHIVES</h2>
 
-    <div class="card-grid">
+  <div class="card-grid">
 
-      <div class="card">
-        <h3>QuizHub</h3>
+    <div class="card">
 
-        <p>
-          Enterprise onboarding platform with RBAC,
-          Spring Boot APIs, React frontend,
-          AWS SES integration, and PingFederate SSO.
-        </p>
-      </div>
+      <h3>QuizHub</h3>
 
-      <div class="card">
-        <h3>Backup Portal</h3>
+      <br>
 
-        <p>
-          Monolith to microservices migration using
-          Spring Boot, AWS ECS Fargate,
-          API Gateway, and distributed architecture.
-        </p>
-      </div>
+      <p>
+        Enterprise onboarding platform developed for MSD employees to simplify
+        learning workflows through interactive quizzes and automated onboarding.
+      </p>
 
-      <div class="card">
-        <h3>Takeda myPKFiT</h3>
+      <br>
 
-        <p>
-          Automation platform using Selenium,
-          Appium, BrowserStack, Terraform,
-          and AWS infrastructure automation.
-        </p>
-      </div>
+      <ul>
+        <li>Led end-to-end development with a team of 7 engineers.</li>
+        <li>Implemented RBAC with Admin, Creator, Reviewer, and User roles.</li>
+        <li>Integrated PingFederate enterprise authentication.</li>
+        <li>Automated onboarding emails using AWS SES.</li>
+        <li>Built responsive UI using ReactJS and Ant Design.</li>
+      </ul>
+
+      <br>
+
+      <p style="color:#00ff88;">
+        STACK: ReactJS • Spring Boot • AWS • SES • MySQL
+      </p>
 
     </div>
 
-  </section>
+    <div class="card">
+
+      <h3>Backup Portal</h3>
+
+      <br>
+
+      <p>
+        Large-scale modernization project transforming a legacy monolithic
+        application into scalable microservices architecture.
+      </p>
+
+      <br>
+
+      <ul>
+        <li>Designed Ingestor → Processor → API pipeline architecture.</li>
+        <li>Built independently deployable microservices.</li>
+        <li>Centralized routing using AWS API Gateway.</li>
+        <li>Deployed scalable services using ECS Fargate.</li>
+        <li>Integrated Oracle APEX frontend with REST APIs.</li>
+      </ul>
+
+      <br>
+
+      <p style="color:#00ff88;">
+        STACK: Spring Boot • AWS ECS • API Gateway • Oracle APEX • Microservices
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <h3>Takeda myPKFiT Automation</h3>
+
+      <br>
+
+      <p>
+        Enterprise pharmaceutical automation ecosystem developed for Takeda
+        to improve testing efficiency and reduce manual regression efforts.
+      </p>
+
+      <br>
+
+      <ul>
+        <li>Saved over $200K annually through automation.</li>
+        <li>Automated 7+ mobile and web applications.</li>
+        <li>Integrated BrowserStack cloud device testing.</li>
+        <li>Developed reusable Python automation utilities.</li>
+        <li>Managed infrastructure using Terraform and AWS.</li>
+      </ul>
+
+      <br>
+
+      <p style="color:#00ff88;">
+        STACK: Selenium • Appium • Python • AWS • Terraform • BrowserStack
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <h3>AWS Infrastructure Automation</h3>
+
+      <br>
+
+      <p>
+        Automated enterprise cloud infrastructure provisioning and deployment
+        pipelines using Infrastructure as Code principles.
+      </p>
+
+      <br>
+
+      <ul>
+        <li>Provisioned AWS environments using Terraform.</li>
+        <li>Created reusable deployment pipelines.</li>
+        <li>Configured ECS, EC2, S3, IAM, and Auto Scaling.</li>
+        <li>Integrated CI/CD workflows using Jenkins.</li>
+      </ul>
+
+      <br>
+
+      <p style="color:#00ff88;">
+        STACK: Terraform • AWS • Jenkins • Docker • Kubernetes
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
 
   <section id="contact">
 
@@ -467,55 +594,6 @@
     }
 
     typeEffect();
-
-    // MATRIX EFFECT
-
-    const canvas = document.getElementById("matrix");
-    const ctx = canvas.getContext("2d");
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const letters = "01";
-    const fontSize = 14;
-    const columns = canvas.width / fontSize;
-
-    const drops = [];
-
-    for(let x = 0; x < columns; x++){
-      drops[x] = 1;
-    }
-
-    function draw(){
-
-      ctx.fillStyle = "rgba(0,0,0,0.05)";
-      ctx.fillRect(0,0,canvas.width,canvas.height);
-
-      ctx.fillStyle = "#00ff88";
-      ctx.font = fontSize + "px monospace";
-
-      for(let i = 0; i < drops.length; i++){
-
-        const text = letters.charAt(
-          Math.floor(Math.random() * letters.length)
-        );
-
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-        if(drops[i] * fontSize > canvas.height && Math.random() > 0.975){
-          drops[i] = 0;
-        }
-
-        drops[i]++;
-      }
-    }
-
-    setInterval(draw,33);
-
-    window.addEventListener("resize", () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
 
   </script>
 
